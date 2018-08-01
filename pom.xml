@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.fujion.webjars</groupId>
+		<artifactId>fujion-webjars</artifactId>
+		<version>2.1.0</version>
+	</parent>
+
+	<name>Bootswatch Web Jars</name>
+	<artifactId>fujion-bootswatch</artifactId>
+	<version>3.3.7-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<description>Web jar packaging of Bootswatch themes</description>
+
+	<modules>
+		<module>fujion-bootswatch-cerulean</module>
+		<module>fujion-bootswatch-cosmo</module>
+		<module>fujion-bootswatch-cyborg</module>
+		<module>fujion-bootswatch-darkly</module>
+		<module>fujion-bootswatch-flatly</module>
+		<module>fujion-bootswatch-journal</module>
+		<module>fujion-bootswatch-lumen</module>
+		<module>fujion-bootswatch-paper</module>
+		<module>fujion-bootswatch-readable</module>
+		<module>fujion-bootswatch-sandstone</module>
+		<module>fujion-bootswatch-simplex</module>
+		<module>fujion-bootswatch-slate</module>
+		<module>fujion-bootswatch-spacelab</module>
+		<module>fujion-bootswatch-superhero</module>
+		<module>fujion-bootswatch-united</module>
+		<module>fujion-bootswatch-yeti</module>
+	</modules>
+
+	<properties>
+		<src.url>https://github.com/thomaspark/bootswatch/archive/v${src.version}.zip</src.url>
+		<src.top>bootswatch-${src.version}</src.top>
+	</properties>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>precompile</id>
+							<configuration>
+								<target>
+									<get src="${src.url}" dest="${src.zipdir}/src.zip"/>
+									<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
+									<move todir="${webjar.target}">
+										<fileset dir="${src.rootdir}/bower_components/bootstrap" includes="dist/fonts/*.*,dist/js/*.*,LICENSE,README.md"/>
+									</move>
+									<move todir="${webjar.target}/dist/css">
+										<fileset dir="${src.rootdir}/${bootswatch.theme}" includes="*.css"/>
+									</move>
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
