@@ -9,7 +9,7 @@
 
 	<name>Bootswatch Web Jars</name>
 	<artifactId>webjar-bootswatch</artifactId>
-	<version>3.3.7-SNAPSHOT</version>
+	<version>3.3.7</version>
 	<packaging>pom</packaging>
 	<description>Web jar packaging of Bootswatch themes</description>
 
@@ -47,7 +47,7 @@
 							<id>precompile</id>
 							<configuration>
 								<target unless="bootswatch.theme">
-									<get src="${src.url}" dest="${src.zipdir}/src.zip"/>
+									<get src="${src.url}" dest="${src.zipdir}/src.zip" />
 									<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
 								</target>
 							</configuration>
@@ -57,10 +57,10 @@
 							<configuration>
 								<target if="bootswatch.theme">
 									<copy todir="${webjar.target}">
-										<fileset dir="${src.rootdir}/bower_components/bootstrap" includes="dist/fonts/*.*,dist/js/*.*,LICENSE,README.md"/>
+										<fileset dir="${src.rootdir}/bower_components/bootstrap" includes="dist/fonts/*.*,dist/js/*.*,LICENSE,README.md" />
 									</copy>
 									<copy todir="${webjar.target}/dist/css">
-										<fileset dir="${src.rootdir}/${bootswatch.theme}" includes="*.css"/>
+										<fileset dir="${src.rootdir}/${bootswatch.theme}" includes="*.css" />
 									</copy>
 								</target>
 							</configuration>
@@ -75,4 +75,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+  <scm>
+    <tag>3.3.7</tag>
+  </scm>
 </project>
