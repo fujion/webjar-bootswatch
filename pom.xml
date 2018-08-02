@@ -34,7 +34,7 @@
 
 	<properties>
 		<src.url>https://github.com/thomaspark/bootswatch/archive/v${src.version}.zip</src.url>
-		<src.top>bootswatch-${src.version}</src.top>
+		<src.rootdir>${project.basedir}/../target/staging/bootswatch-${src.version}</src.rootdir>
 	</properties>
 	
 	<build>
@@ -46,15 +46,22 @@
 						<execution>
 							<id>precompile</id>
 							<configuration>
-								<target>
+								<target unless="bootswatch.theme">
 									<get src="${src.url}" dest="${src.zipdir}/src.zip"/>
 									<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
-									<move todir="${webjar.target}">
+								</target>
+							</configuration>
+						</execution>
+						<execution>
+							<id>postcompile</id>
+							<configuration>
+								<target if="bootswatch.theme">
+									<copy todir="${webjar.target}">
 										<fileset dir="${src.rootdir}/bower_components/bootstrap" includes="dist/fonts/*.*,dist/js/*.*,LICENSE,README.md"/>
-									</move>
-									<move todir="${webjar.target}/dist/css">
+									</copy>
+									<copy todir="${webjar.target}/dist/css">
 										<fileset dir="${src.rootdir}/${bootswatch.theme}" includes="*.css"/>
-									</move>
+									</copy>
 								</target>
 							</configuration>
 						</execution>
@@ -62,5 +69,10 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 </project>
