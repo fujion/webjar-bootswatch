@@ -9,7 +9,7 @@
 
 	<name>Bootswatch Web Jars</name>
 	<artifactId>webjar-bootswatch</artifactId>
-	<version>3.3.7</version>
+	<version>3.3.7-1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>Web jar packaging of Bootswatch themes</description>
 
@@ -75,8 +75,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-  <scm>
-    <tag>3.3.7</tag>
-  </scm>
 </project>
