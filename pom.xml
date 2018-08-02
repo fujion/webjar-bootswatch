@@ -8,28 +8,28 @@
 	</parent>
 
 	<name>Bootswatch Web Jars</name>
-	<artifactId>fujion-bootswatch</artifactId>
+	<artifactId>webjar-bootswatch</artifactId>
 	<version>3.3.7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>Web jar packaging of Bootswatch themes</description>
 
 	<modules>
-		<module>fujion-bootswatch-cerulean</module>
-		<module>fujion-bootswatch-cosmo</module>
-		<module>fujion-bootswatch-cyborg</module>
-		<module>fujion-bootswatch-darkly</module>
-		<module>fujion-bootswatch-flatly</module>
-		<module>fujion-bootswatch-journal</module>
-		<module>fujion-bootswatch-lumen</module>
-		<module>fujion-bootswatch-paper</module>
-		<module>fujion-bootswatch-readable</module>
-		<module>fujion-bootswatch-sandstone</module>
-		<module>fujion-bootswatch-simplex</module>
-		<module>fujion-bootswatch-slate</module>
-		<module>fujion-bootswatch-spacelab</module>
-		<module>fujion-bootswatch-superhero</module>
-		<module>fujion-bootswatch-united</module>
-		<module>fujion-bootswatch-yeti</module>
+		<module>webjar-bootswatch-cerulean</module>
+		<module>webjar-bootswatch-cosmo</module>
+		<module>webjar-bootswatch-cyborg</module>
+		<module>webjar-bootswatch-darkly</module>
+		<module>webjar-bootswatch-flatly</module>
+		<module>webjar-bootswatch-journal</module>
+		<module>webjar-bootswatch-lumen</module>
+		<module>webjar-bootswatch-paper</module>
+		<module>webjar-bootswatch-readable</module>
+		<module>webjar-bootswatch-sandstone</module>
+		<module>webjar-bootswatch-simplex</module>
+		<module>webjar-bootswatch-slate</module>
+		<module>webjar-bootswatch-spacelab</module>
+		<module>webjar-bootswatch-superhero</module>
+		<module>webjar-bootswatch-united</module>
+		<module>webjar-bootswatch-yeti</module>
 	</modules>
 
 	<properties>
