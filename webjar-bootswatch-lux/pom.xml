@@ -7,12 +7,12 @@
 		<version>4.1.3-SNAPSHOT</version>
 	</parent>
 
-	<name>Bootstrap Journal Theme</name>
-	<artifactId>webjar-bootswatch-journal</artifactId>
-	<description>Bootstrap journal theme.</description>
+	<name>Bootstrap Lux Theme</name>
+	<artifactId>webjar-bootswatch-lux</artifactId>
+	<description>Bootstrap lux theme.</description>
 	
 	<properties>
-		<bootswatch.theme>journal</bootswatch.theme>
+		<bootswatch.theme>lux</bootswatch.theme>
 	</properties>
 	
 </project>

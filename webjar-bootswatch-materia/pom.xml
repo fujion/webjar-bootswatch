@@ -4,15 +4,15 @@
 	<parent>
 		<groupId>org.fujion.webjars</groupId>
 		<artifactId>webjar-bootswatch</artifactId>
-		<version>3.3.7-1-SNAPSHOT</version>
+		<version>4.1.3-SNAPSHOT</version>
 	</parent>
 
-	<name>Bootstrap Readable Theme</name>
-	<artifactId>webjar-bootswatch-readable</artifactId>
-	<description>Bootstrap readable theme.</description>
+	<name>Bootstrap Materia Theme</name>
+	<artifactId>webjar-bootswatch-materia</artifactId>
+	<description>Bootstrap materia theme.</description>
 	
 	<properties>
-		<bootswatch.theme>readable</bootswatch.theme>
+		<bootswatch.theme>materia</bootswatch.theme>
 	</properties>
 	
 </project>

@@ -7,12 +7,12 @@
 		<version>4.1.3-SNAPSHOT</version>
 	</parent>
 
-	<name>Bootstrap Journal Theme</name>
-	<artifactId>webjar-bootswatch-journal</artifactId>
-	<description>Bootstrap journal theme.</description>
+	<name>Bootstrap Sketchy Theme</name>
+	<artifactId>webjar-bootswatch-sketchy</artifactId>
+	<description>Bootstrap sketchy theme.</description>
 	
 	<properties>
-		<bootswatch.theme>journal</bootswatch.theme>
+		<bootswatch.theme>sketchy</bootswatch.theme>
 	</properties>
 	
 </project>

@@ -9,7 +9,7 @@
 
 	<name>Bootswatch Web Jars</name>
 	<artifactId>webjar-bootswatch</artifactId>
-	<version>3.3.7-1-SNAPSHOT</version>
+	<version>4.1.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>Web jar packaging of Bootswatch themes</description>
 
@@ -20,12 +20,17 @@
 		<module>webjar-bootswatch-darkly</module>
 		<module>webjar-bootswatch-flatly</module>
 		<module>webjar-bootswatch-journal</module>
+		<module>webjar-bootswatch-litera</module>
 		<module>webjar-bootswatch-lumen</module>
-		<module>webjar-bootswatch-paper</module>
-		<module>webjar-bootswatch-readable</module>
+		<module>webjar-bootswatch-lux</module>
+		<module>webjar-bootswatch-materia</module>
+		<module>webjar-bootswatch-minty</module>
+		<module>webjar-bootswatch-pulse</module>
 		<module>webjar-bootswatch-sandstone</module>
 		<module>webjar-bootswatch-simplex</module>
+		<module>webjar-bootswatch-sketchy</module>
 		<module>webjar-bootswatch-slate</module>
+		<module>webjar-bootswatch-solar</module>
 		<module>webjar-bootswatch-spacelab</module>
 		<module>webjar-bootswatch-superhero</module>
 		<module>webjar-bootswatch-united</module>
@@ -33,8 +38,10 @@
 	</modules>
 
 	<properties>
-		<src.url>https://github.com/thomaspark/bootswatch/archive/v${src.version}.zip</src.url>
-		<src.rootdir>${project.basedir}/../target/staging/bootswatch-${src.version}</src.rootdir>
+		<src1.url>https://github.com/twbs/bootstrap/archive/v${src.version}.zip</src1.url>
+		<src2.url>https://github.com/thomaspark/bootswatch/archive/v${src.version}.zip</src2.url>
+		<src1.rootdir>${project.basedir}/../target/staging/bootstrap-${src.version}</src1.rootdir>
+		<src2.rootdir>${project.basedir}/../target/staging/bootswatch-${src.version}</src2.rootdir>
 	</properties>
 	
 	<build>
@@ -47,8 +54,10 @@
 							<id>precompile</id>
 							<configuration>
 								<target unless="bootswatch.theme">
-									<get src="${src.url}" dest="${src.zipdir}/src.zip" />
-									<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
+									<get src="${src1.url}" dest="${src.zipdir}/src1.zip" />
+									<get src="${src2.url}" dest="${src.zipdir}/src2.zip" />
+									<unzip src="${src.zipdir}/src1.zip" dest="${src.tmpdir}" />
+									<unzip src="${src.zipdir}/src2.zip" dest="${src.tmpdir}" />
 								</target>
 							</configuration>
 						</execution>
@@ -57,10 +66,13 @@
 							<configuration>
 								<target if="bootswatch.theme">
 									<copy todir="${webjar.target}">
-										<fileset dir="${src.rootdir}/bower_components/bootstrap" includes="dist/fonts/*.*,dist/js/*.*,LICENSE,README.md" />
+										<fileset dir="${src2.rootdir}" includes="LICENSE,README.md" />
+									</copy>
+									<copy todir="${webjar.target}">
+										<fileset dir="${src1.rootdir}" includes="dist/js/bootstrap.js,dist/js/bootstrap.min.js"/>
 									</copy>
 									<copy todir="${webjar.target}/dist/css">
-										<fileset dir="${src.rootdir}/${bootswatch.theme}" includes="*.css" />
+										<fileset dir="${src2.rootdir}/dist/${bootswatch.theme}" includes="*.css" />
 									</copy>
 								</target>
 							</configuration>

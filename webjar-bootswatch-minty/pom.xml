@@ -7,12 +7,12 @@
 		<version>4.1.3-SNAPSHOT</version>
 	</parent>
 
-	<name>Bootstrap Journal Theme</name>
-	<artifactId>webjar-bootswatch-journal</artifactId>
-	<description>Bootstrap journal theme.</description>
+	<name>Bootstrap Minty Theme</name>
+	<artifactId>webjar-bootswatch-minty</artifactId>
+	<description>Bootstrap minty theme.</description>
 	
 	<properties>
-		<bootswatch.theme>journal</bootswatch.theme>
+		<bootswatch.theme>minty</bootswatch.theme>
 	</properties>
 	
 </project>

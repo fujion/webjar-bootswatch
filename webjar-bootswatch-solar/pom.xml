@@ -7,12 +7,12 @@
 		<version>4.1.3-SNAPSHOT</version>
 	</parent>
 
-	<name>Bootstrap Journal Theme</name>
-	<artifactId>webjar-bootswatch-journal</artifactId>
-	<description>Bootstrap journal theme.</description>
+	<name>Bootstrap Solar Theme</name>
+	<artifactId>webjar-bootswatch-solar</artifactId>
+	<description>Bootstrap solar theme.</description>
 	
 	<properties>
-		<bootswatch.theme>journal</bootswatch.theme>
+		<bootswatch.theme>solar</bootswatch.theme>
 	</properties>
 	
 </project>
