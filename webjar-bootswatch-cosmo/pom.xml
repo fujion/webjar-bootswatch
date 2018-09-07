@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.fujion.webjars</groupId>
 		<artifactId>webjar-bootswatch</artifactId>
-		<version>4.1.3</version>
+		<version>4.1.3-1-SNAPSHOT</version>
 	</parent>
 
 	<name>Bootstrap Cosmo Theme</name>
