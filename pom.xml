@@ -9,7 +9,7 @@
 
 	<name>Bootswatch Web Jars</name>
 	<artifactId>webjar-bootswatch</artifactId>
-	<version>4.1.3-SNAPSHOT</version>
+	<version>4.1.3</version>
 	<packaging>pom</packaging>
 	<description>Web jar packaging of Bootswatch themes</description>
 
@@ -69,7 +69,7 @@
 										<fileset dir="${src2.rootdir}" includes="LICENSE,README.md" />
 									</copy>
 									<copy todir="${webjar.target}">
-										<fileset dir="${src1.rootdir}" includes="dist/js/bootstrap.js,dist/js/bootstrap.min.js"/>
+										<fileset dir="${src1.rootdir}" includes="dist/js/bootstrap.js,dist/js/bootstrap.min.js" />
 									</copy>
 									<copy todir="${webjar.target}/dist/css">
 										<fileset dir="${src2.rootdir}/dist/${bootswatch.theme}" includes="*.css" />
@@ -87,4 +87,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+  <scm>
+    <tag>4.1.3</tag>
+  </scm>
 </project>
