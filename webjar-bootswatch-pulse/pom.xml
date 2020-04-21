@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.fujion.webjars</groupId>
 		<artifactId>webjar-bootswatch</artifactId>
-		<version>4.3.1-1-SNAPSHOT</version>
+		<version>4.4.1-SNAPSHOT</version>
 	</parent>
 
 	<name>Bootstrap Pulse Theme</name>
