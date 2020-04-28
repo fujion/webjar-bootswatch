@@ -10,80 +10,46 @@
 	<name>Bootswatch Web Jars</name>
 	<artifactId>webjar-bootswatch</artifactId>
 	<version>4.4.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<description>Web jar packaging of Bootswatch themes</description>
 
-	<modules>
-		<module>webjar-bootswatch-cerulean</module>
-		<module>webjar-bootswatch-cosmo</module>
-		<module>webjar-bootswatch-cyborg</module>
-		<module>webjar-bootswatch-darkly</module>
-		<module>webjar-bootswatch-flatly</module>
-		<module>webjar-bootswatch-journal</module>
-		<module>webjar-bootswatch-litera</module>
-		<module>webjar-bootswatch-lumen</module>
-		<module>webjar-bootswatch-lux</module>
-		<module>webjar-bootswatch-materia</module>
-		<module>webjar-bootswatch-minty</module>
-		<module>webjar-bootswatch-pulse</module>
-		<module>webjar-bootswatch-sandstone</module>
-		<module>webjar-bootswatch-simplex</module>
-		<module>webjar-bootswatch-sketchy</module>
-		<module>webjar-bootswatch-slate</module>
-		<module>webjar-bootswatch-solar</module>
-		<module>webjar-bootswatch-spacelab</module>
-		<module>webjar-bootswatch-superhero</module>
-		<module>webjar-bootswatch-united</module>
-		<module>webjar-bootswatch-yeti</module>
-	</modules>
-
-	<properties>
-		<src1.url>https://github.com/twbs/bootstrap/archive/v${src.version}.zip</src1.url>
-		<src2.url>https://github.com/thomaspark/bootswatch/archive/v${src.version}.zip</src2.url>
-		<src1.rootdir>${project.basedir}/../target/staging/bootstrap-${src.version}</src1.rootdir>
-		<src2.rootdir>${project.basedir}/../target/staging/bootswatch-${src.version}</src2.rootdir>
-	</properties>
-	
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>precompile</id>
-							<configuration>
-								<target unless="bootswatch.theme">
-									<get src="${src1.url}" dest="${src.zipdir}/src1.zip" />
-									<get src="${src2.url}" dest="${src.zipdir}/src2.zip" />
-									<unzip src="${src.zipdir}/src1.zip" dest="${src.tmpdir}" />
-									<unzip src="${src.zipdir}/src2.zip" dest="${src.tmpdir}" />
-								</target>
-							</configuration>
-						</execution>
-						<execution>
-							<id>postcompile</id>
-							<configuration>
-								<target if="bootswatch.theme">
-									<copy todir="${webjar.target}">
-										<fileset dir="${src2.rootdir}" includes="LICENSE,README.md" />
-									</copy>
-									<copy todir="${webjar.target}">
-										<fileset dir="${src1.rootdir}" includes="dist/js/bootstrap.js,dist/js/bootstrap.min.js" />
-									</copy>
-									<copy todir="${webjar.target}/dist/css">
-										<fileset dir="${src2.rootdir}/dist/${bootswatch.theme}" includes="*.css" />
-									</copy>
-								</target>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>npm-install</id>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>precompile</id>
+						<configuration>
+							<target>
+								<copy tofile="${src.rootdir}/package.json" file="${basedir}/package-template.json">
+									<filterchain>
+										<expandproperties />
+									</filterchain>
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>postcompile</id>
+						<configuration>
+							<target>
+								<copy todir="${webjar.target}">
+									<fileset dir="${src.rootdir}/node_modules/bootswatch" includes="LICENSE,README.md,dist/" />
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
