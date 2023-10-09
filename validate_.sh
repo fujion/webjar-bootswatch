@@ -1,4 +1,4 @@
-fdir_exists "dist/cerulean"
+dir_exists "dist/cerulean"
 dir_exists "dist/cyborg"
 dir_exists "dist/flatly"
 dir_exists "dist/litera"
