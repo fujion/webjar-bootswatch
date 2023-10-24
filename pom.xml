@@ -47,6 +47,7 @@
 								<rule>dir_exists dist/spacelab</rule>
 								<rule>dir_exists dist/united</rule>
 								<rule>dir_exists dist/yeti</rule>
+								<rule>dir_count dist 25</rule>
 								<rule>file_exists LICENSE</rule>
 								<rule>file_exists README.md</rule>
 							</rules>
